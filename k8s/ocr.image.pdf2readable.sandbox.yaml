@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr-image-doc2readOcr-api-sandbox-deployment
+  labels:
+    app: ocr-image-doc2readOcr-api-sandbox
+spec:
+  selector:
+    matchLabels:
+      app: ocr-image-doc2readOcr-api-sandbox
+  template:
+    metadata:
+      labels:
+        app: ocr-image-doc2readOcr-api-sandbox
+    spec:
+      containers:
+        - name: ocr-image-doc2readOcr-sandbox-container
+          image: dkr.ecr.eu-central-1.amazonaws.com/ocr.image.doc2readOcr.sandbox:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: ENV_ACCESS_KEY_ID
+              value: ""
+            - name: ENV_SECRET_ACCESS_KEY
+              value: ""
+            - name: ELK_URL
+              value: ""
+            - name: LOG_FILE
+              value: "logFile.log"
+            - name: ELK_INDEX
+              value: ""
+            - name: APPLICATION
+              value: ""
+            - name: ENVIRONMENT
+              value: "Sandbox"
+            - name: LOG_LEVEL
+              value: "DEBUG"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ocr-image-doc2readOcr-sandbox-service
+spec:
+  type: NodePort
+  selector:
+    app: ocr-image-doc2readOcr-sandbox
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+
+---

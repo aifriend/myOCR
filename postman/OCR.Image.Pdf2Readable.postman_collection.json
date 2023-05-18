@@ -1,0 +1,346 @@
+{
+  "info": {
+    "_postman_id": "909898f1-de21-44fd-aec5-2cf641e3504a",
+    "name": ".OCR.Image.Doc2ReadOcr",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": ".OCR.Image.Doc2ReadOcr::local::S3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7b51ddc3-cbaa-4495-b0d2-e2ee2245810f",
+            "exec": [
+              "pm.test(\"Your test name\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.globals.set(\"last_ocr_base64\", jsonData.resultText);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n\t\"source\": \"S3\",\n    \"data\":\"261119/IRPH/PH4.pdf\",\n\t\"key\": \"PH4\",\n\t\"persistence\": \"S3\",\n\t\"lang\": \"spa\",\n\t\"bucket\": \"product.irph\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7002/api/ocr/image/pdf/readOcr",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7002",
+          "path": [
+            "api",
+            "",
+            "ocr",
+            "image",
+            "pdf",
+            "readOcr"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": ".OCR.Image.Doc2ReadOcr::local::native::S3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "8769cffa-094a-45d3-9227-f4c01504c690",
+            "exec": [
+              "pm.test(\"Your test name\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.globals.set(\"last_ocr_base64\", jsonData.resultText);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n\t\"source\": \"S3\",\n\t\"bucket\": \"product.irph\",\n    \"data\":\"13369645_1.pdf\",\n\t\"key\": \"13369645_1.pdf\",\n\t\"persistence\": \"S3\",\n\t\"lang\": \"spa\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7002/api/ocr/image/pdf/readOcr",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7002",
+          "path": [
+            "api",
+            "",
+            "ocr",
+            "image",
+            "pdf",
+            "readOcr"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": ".OCR.Image.Doc2ReadOcr::local::file",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "5a5877e8-0491-496f-8f1b-9d057ad9c995",
+            "exec": [
+              "pm.test(\"Your test name\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.globals.set(\"last_ocr_base64\", jsonData.resultText);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n\t\"source\": \"FILE\",\n    \"data\":\"/home/oscar/work/work2018/ml/product.irph.document.processor/test/261119/OTROS/PH 13.pdf\",\n\t\"key\": \"261119/OTROS/PH 16.pdf\",\n\t\"bucket\": \"product.irph\",\n\t\"persistence\": \"S3\",\n\t\"lang\": \"spa\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7002/api/ocr/image/pdf/readOcr",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7002",
+          "path": [
+            "api",
+            "",
+            "ocr",
+            "image",
+            "pdf",
+            "readOcr"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": ".OCR.Image.Doc2ReadOcr::local::S3::negative",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "be9778a8-8300-480f-b873-f02962929436",
+            "exec": [
+              "pm.test(\"Your test name\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.globals.set(\"last_ocr_base64\", jsonData.resultText);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n\t\"source\": \"S3\",\n    \"data\":\"readOcr_negative.pdf\",\n\t\"key\": \"readOcr_negative\",\n\t\"persistence\": \"S3\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:7002/api/ocr/image/pdf/readOcr",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "7002",
+          "path": [
+            "api",
+            "",
+            "ocr",
+            "image",
+            "pdf",
+            "readOcr"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": ".OCR.Image.Doc2ReadOcr::sandbox::S3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "24e037b0-7016-4334-8b8f-22e19bd99362",
+            "exec": [
+              "pm.test(\"Your test name\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.globals.set(\"last_ocr_base64\", jsonData.resultText);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n\t\"source\": \"S3\",\n    \"data\":\"261119/IRPH/PH10.pdf\",\n\t\"key\": \"PH10\",\n\t\"persistence\": \"S3\",\n\t\"lang\": \"spa\",\n\t\"bucket\": \"product.irph\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://acc20116a08a111eab7d70276d73f90b-921522853.eu-central-1.elb.amazonaws.com/api/ocr/image/pdf/readOcr",
+          "protocol": "http",
+          "host": [
+            "acc20116a08a111eab7d70276d73f90b-921522853",
+            "eu-central-1",
+            "elb",
+            "amazonaws",
+            "com"
+          ],
+          "path": [
+            "api",
+            "",
+            "ocr",
+            "image",
+            "pdf",
+            "readOcr"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": ".OCR.Image.Doc2ReadOcr::sandbox::samelan::S3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "77b3a850-9489-48ae-b08c-9c7e0fd116ac",
+            "exec": [
+              "pm.test(\"Your test name\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.globals.set(\"last_ocr_base64\", jsonData.resultText);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "type": "text",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \n\t\"source\": \"S3\",\n    \"data\":\"261119/IRPH/PH1.pdf\",\n\t\"key\": \"PH1\",\n\t\"persistence\": \"S3\",\n\t\"lang\": \"spa\",\n\t\"bucket\": \"product.irph\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ocr.sandbox.samelan.com/OcrImageDoc2ReadOcr/api/ocr/image/pdf/readOcr",
+          "protocol": "https",
+          "host": [
+            "ocr",
+            "sandbox",
+            "samelan",
+            "com"
+          ],
+          "path": [
+            "OcrImageDoc2ReadOcr",
+            "api",
+            "",
+            "ocr",
+            "image",
+            "pdf",
+            "readOcr"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
